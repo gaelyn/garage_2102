@@ -30,6 +30,7 @@ class Garage
     sorted_by_age = all_cars.sort_by do |car|
       car.age
     end
+
     oldest = Array.new
     3.times do
       oldest << sorted_by_age.pop

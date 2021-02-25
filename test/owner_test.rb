@@ -4,7 +4,6 @@ require './lib/car'
 require './lib/owner'
 
 class OwnerTest < Minitest::Test
-
   def setup
     @owner_1 = Owner.new('Regina George', 'Heiress')
   end

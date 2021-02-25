@@ -57,7 +57,4 @@ class GarageTest < Minitest::Test
     assert_equal @garage.oldest_cars[1].age, 54
     assert_equal @garage.oldest_cars[2].age, 20
   end
-
-# pry(main)> garage.oldest_cars
-# # => [#<Car:0x00007fcb13bd22d0...>, #<Car:0x00007fb898081850...>, #<Car:0x00007fb898081850...>]
 end
