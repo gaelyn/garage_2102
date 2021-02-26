@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/car'
+# require './lib/car'
 require './lib/owner'
 require './lib/garage'
 
@@ -19,8 +19,9 @@ class GarageTest < Minitest::Test
     assert_instance_of Garage, @garage
   end
 
-  def test_it_has_a_name
+  def test_it_has_attributes
     assert_equal 'Totally Safe Parking', @garage.name
+    assert_equal [], @garage.customers
   end
 
   def test_it_can_add_customer
@@ -30,7 +31,7 @@ class GarageTest < Minitest::Test
     assert_equal @garage.customers, [@owner_1, @owner_2]
   end
 
-  def test_it_has_all_cars
+  def test_it_can_list_all_cars
     @garage.add_customer(@owner_1)
     @garage.add_customer(@owner_2)
 
@@ -56,5 +57,22 @@ class GarageTest < Minitest::Test
     assert_equal @garage.oldest_cars[0].age, 58
     assert_equal @garage.oldest_cars[1].age, 54
     assert_equal @garage.oldest_cars[2].age, 20
+  end
+
+  #Iteration 4
+  def test_it_gets_owner_of_oldest_car
+    @garage.add_customer(@owner_1)
+    @garage.add_customer(@owner_2)
+
+    assert_equal "Glen Coco", @garage.owner_of_oldest_car
+  end
+
+  def test_it_gets_cars_in_range
+    @garage.add_customer(@owner_1)
+    @garage.add_customer(@owner_2)
+
+    #Not the best test but Megan had her test set up differently
+    # need buy_car method in Owner to return the car, not the cars array. 
+    assert_equal 3, @garage.cars_in_range(1967..2020).count
   end
 end

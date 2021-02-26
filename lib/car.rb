@@ -10,6 +10,10 @@ class Car
     @model = split_string[2]
     @color = split_string[0]
     @year = info[:year]
-    @age = 2021 - (info[:year].to_i)
+    # @age = 2021 - (info[:year].to_i)
+  end
+
+  def age
+    Time.now.year - @year.to_i
   end
 end
